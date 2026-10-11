@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">✓</div>
+      <div>
+        <p class="eyebrow">MICRO PROJECT</p>
+        <h1>Cloud To-Do List</h1>
+        <p class="subtitle">Plan your day. Track your progress.</p>
+      </div>
+      <span class="cloud-badge">☁ Cloud-ready</span>
+    </header>
+
+    <section class="summary" aria-label="Task summary">
+      <div class="summary-card"><span>Total tasks</span><strong id="totalCount">0</strong></div>
+      <div class="summary-card"><span>Completed</span><strong id="completedCount">0</strong></div>
+      <div class="summary-card"><span>Pending</span><strong id="pendingCount">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <h2>Add a task</h2>
+      <form id="taskForm" class="task-form">
+        <label class="sr-only" for="taskInput">Task description</label>
+        <input id="taskInput" type="text" maxlength="120" placeholder="What do you need to do?" required>
+        <label class="sr-only" for="dueDate">Due date</label>
+        <input id="dueDate" type="date" aria-label="Due date">
+        <button type="submit">＋ Add task</button>
+      </form>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter active" data-filter="all" type="button">All</button>
+          <button class="filter" data-filter="pending" type="button">Pending</button>
+          <button class="filter" data-filter="completed" type="button">Completed</button>
+        </div>
+        <button id="clearCompleted" class="text-button" type="button">Clear completed</button>
+      </div>
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">☑</div>
+        <h3>No tasks here yet</h3>
+        <p>Add your first task above to get started.</p>
+      </div>
+      <footer class="panel-footer">
+        <span id="taskMessage">Your tasks are saved in this browser.</span>
+        <span class="storage-pill"><i></i> Demo storage</span>
+      </footer>
+    </section>
+    <p class="note"><strong>Project note:</strong> This starter version saves tasks in browser storage. To make it truly cloud-based for multiple devices/users, connect it to an Azure backend and database as described in README.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
